@@ -1,3 +1,62 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+$text-color: #424242;
+$border: #c9cacc;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 409px;
+  height: 382px;
+  border: #c9cacc 1px solid;
+  border-radius: 16px;
+}
+.title {
+  font-style: normal;
+  font-weight: 500;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  color: $text-color;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+.data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 7px;
+}
+.placeh {
+  margin-right: auto;
+  font-size: 16px;
+  color: #424242;
+}
+.inp {
+  border: #c9cacc 1px solid;
+  width: 345px;
+  height: 50px;
+  font-size: 24px;
+}
 
-
-
+.button {
+  background: linear-gradient(to right, #41522e, #be8022);
+  border: $border 1px solid;
+  width: 345px;
+  height: 50px;
+  color: white;
+}

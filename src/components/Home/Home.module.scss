@@ -1,0 +1,149 @@
+$text-color: #424242;
+body {
+  background: #e5e5e5;
+}
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+.left_title {
+  font-style: normal;
+  font-weight: 500;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  color: $text-color;
+  padding-left: 32px;
+  padding-top: 32px;
+}
+
+.right_title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 32px;
+  padding-top: 32px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #41522e;
+}
+
+.img_exit {
+  height: 18px;
+  margin-left: 5px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+}
+.box {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  height: 100%;
+  max-width: 1048px;
+}
+.left_box_all {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.left_box_first {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  height: 410px;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  margin-right: 24px;
+  background-color: white;
+}
+.left_box_other {
+  width: 360px;
+  height: 472px;
+  border-radius: 16px;
+  background-color: white;
+  margin-right: 24px;
+}
+.left_box_other_data {
+  margin-left: 32px;
+  margin-top: 32px;
+}
+.right_box {
+  width: 664px;
+  height: 906px;
+  border-radius: 16px;
+  background-color: white;
+}
+.right_box_data {
+  margin-left: 32px;
+  margin-top: 32px;
+}
+
+label {
+  font-size: 16px;
+  color: #424242;
+}
+
+input {
+  width: 296px;
+  height: 50px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border: 1px solid #c9cacc;
+  border-radius: 4px;
+}
+
+button {
+  width: 296px;
+  height: 50px;
+  background: linear-gradient(to right, #41522e, #be8022);
+  border: #424242 1px solid;
+  color: white;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+.inputs_data {
+  display: flex;
+  flex-direction: column;
+  margin: 32px;
+}
+
+h2 {
+  color: $text-color;
+}
+.text {
+  color: $text-color;
+  font-size: 32px;
+  font-weight: 500;
+}
+select {
+  width: 89px;
+  height: 28px;
+  margin-right: 8px;
+  border: 1px solid #41522e;
+  border-radius: 4px;
+  background-color: white;
+}
+.left_data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.right_data {
+  margin-right: 32px;
+  font-size: 24px;
+  color: #41522e;
+}
+.img_vector {
+  height: 17.33px;
+  width: 8.67px;
+  margin: 0 10px 0 10px;
+}
