@@ -2,6 +2,7 @@ import React from 'react';
 import css from './Home.module.scss';
 import exit from './exit.png';
 import vector from './vector.png';
+import Scroll from '../Scroll/Scroll';
 
 const Authorization: React.FC = () => {
   return (
@@ -29,7 +30,7 @@ const Authorization: React.FC = () => {
             </div>
             <div className={css.left_box_other}>
               <div className={css.left_box_other_data}>
-                <h2>Избранное</h2>
+                <div className={css.text_title_left}>Избранное</div>
                 <select name="select">
                   <option value="value1" selected>
                     Рейтинг
@@ -57,6 +58,8 @@ const Authorization: React.FC = () => {
                 </div>
                 <div className={css.right_data}>07 июля 2020</div>
               </div>
+              <Scroll />
+              <p>Добавлено в Избранное: 3 отеля</p>
             </div>
           </div>
         </div>

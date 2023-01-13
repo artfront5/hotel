@@ -82,8 +82,7 @@ body {
   background-color: white;
 }
 .right_box_data {
-  margin-left: 32px;
-  margin-top: 32px;
+  margin: 32px;
 }
 
 label {
@@ -116,8 +115,11 @@ button {
   margin: 32px;
 }
 
-h2 {
+.text_title_left {
   color: $text-color;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 32px;
 }
 .text {
   color: $text-color;
@@ -146,4 +148,8 @@ select {
   height: 17.33px;
   width: 8.67px;
   margin: 0 10px 0 10px;
+}
+p {
+  font-size: 17px;
+  color: #424242;
 }
