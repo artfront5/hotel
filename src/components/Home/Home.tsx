@@ -4,6 +4,7 @@ import exit from './exit.png';
 import vector from './vector.png';
 import Scroll from '../Scroll/Scroll';
 import { Input } from '../common/Input';
+import Hotels from '../Hotels/Hotels';
 
 export const Home: React.FC = () => {
   return (
@@ -32,6 +33,7 @@ export const Home: React.FC = () => {
                 inputClassName={css.input}
                 label="Дата заселения"
                 labelClassName={css.label}
+                type="date"
               />
               <Input
                 name="city"
@@ -39,26 +41,30 @@ export const Home: React.FC = () => {
                 inputClassName={css.input}
                 label="Количество дней"
                 labelClassName={css.label}
+                type="number"
               />
               <button className={css.button}>Найти</button>
             </div>
             <div className={css.left_box_other}>
               <div className={css.left_box_other_data}>
                 <div className={css.text_title_left}>Избранное</div>
-                <select name="select">
-                  <option value="value1" selected>
-                    Рейтинг
-                  </option>
-                  <option value="value2">выше</option>
-                  <option value="value3">ниже</option>
-                </select>
-                <select name="select">
-                  <option value="value1" selected>
-                    Цена
-                  </option>
-                  <option value="value2">выше</option>
-                  <option value="value3">ниже</option>
-                </select>
+                <div className={css.selected}>
+                  <select name="select">
+                    <option value="value1" selected>
+                      Рейтинг
+                    </option>
+                    <option value="value2">выше</option>
+                    <option value="value3">ниже</option>
+                  </select>
+                  <select name="select">
+                    <option value="value1" selected>
+                      Цена
+                    </option>
+                    <option value="value2">выше</option>
+                    <option value="value3">ниже</option>
+                  </select>
+                </div>
+                <Hotels />
               </div>
             </div>
           </div>
@@ -73,6 +79,7 @@ export const Home: React.FC = () => {
             </div>
             <Scroll />
             <p>Добавлено в Избранное: 3 отеля</p>
+            <Hotels />
           </div>
         </div>
       </div>

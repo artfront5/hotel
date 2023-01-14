@@ -157,4 +157,9 @@ p {
 .hotels {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.selected {
+  margin-bottom: 32px;
 }

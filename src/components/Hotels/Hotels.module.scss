@@ -1,0 +1,64 @@
+.labelHotel {
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 22px;
+  color: #424242;
+  margin: 0;
+}
+.cardHotel {
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ellipse {
+  width: 64px;
+  height: 64px;
+  margin-right: 16px;
+}
+
+.dataNameHotel {
+  display: flex;
+}
+
+.date {
+  margin: 0;
+  font-size: 14px;
+  color: #878787;
+  margin-bottom: 5px;
+}
+
+.boxDate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.vector {
+  width: 17px;
+  height: 17px;
+}
+
+hr {
+  color: #555;
+  background-color: #555;
+}
+
+.like {
+  width: 21px;
+  height: 18px;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.boxRight {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  height: 100%;
+}
+.price {
+  font-size: 11px;
+  color: #878787;
+  margin-right: 8px;
+}
