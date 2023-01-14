@@ -48,13 +48,11 @@ const images: any = [
 const Scroll: React.FC = () => {
   return (
     <div className={css.images}>
-      <div className={css.items}>
-        {images.map((el: any) => (
-          <div key={el.id} className={css.item}>
-            <img className={css.card_image} src={el.img} alt={el.title} />
-          </div>
-        ))}
-      </div>
+      {images.map((el: any) => (
+        <div key={el.id} className={css.item}>
+          <img className={css.card_image} src={el.img} alt={el.title} />
+        </div>
+      ))}
     </div>
   );
 };

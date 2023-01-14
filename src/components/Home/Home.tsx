@@ -3,11 +3,12 @@ import css from './Home.module.scss';
 import exit from './exit.png';
 import vector from './vector.png';
 import Scroll from '../Scroll/Scroll';
+import { Input } from '../common/Input';
 
-const Authorization: React.FC = () => {
+export const Home: React.FC = () => {
   return (
-    <>
-      <div className={css.content}>
+    <div className={css.content}>
+      <div className={css.header}>
         <div className={css.left_title}>Simple Hotel Check</div>
         <div className={css.right_title}>
           Выйти
@@ -18,15 +19,28 @@ const Authorization: React.FC = () => {
         <div className={css.box}>
           <div className={css.left_box_all}>
             <div className={css.left_box_first}>
-              <div className={css.inputs_data}>
-                <label>Локация</label>
-                <input name="city" type="text" />
-                <label>Дата заселения</label>
-                <input name="date" type="date" />
-                <label>Количество дней</label>
-                <input name="city" type="number" />
-                <button>Найти</button>
-              </div>
+              <Input
+                name="city"
+                blockClassName={css.input_wrapper}
+                inputClassName={css.input}
+                label="Локация"
+                labelClassName={css.label}
+              />
+              <Input
+                name="city"
+                blockClassName={css.input_wrapper}
+                inputClassName={css.input}
+                label="Дата заселения"
+                labelClassName={css.label}
+              />
+              <Input
+                name="city"
+                blockClassName={css.input_wrapper}
+                inputClassName={css.input}
+                label="Количество дней"
+                labelClassName={css.label}
+              />
+              <button className={css.button}>Найти</button>
             </div>
             <div className={css.left_box_other}>
               <div className={css.left_box_other_data}>
@@ -49,22 +63,19 @@ const Authorization: React.FC = () => {
             </div>
           </div>
           <div className={css.right_box}>
-            <div className={css.right_box_data}>
-              <div className={css.content}>
-                <div className={css.left_data}>
-                  <div className={css.text}>Отели</div>{' '}
-                  <img className={css.img_vector} src={vector} alt="vector" />{' '}
-                  <div className={css.text}>Москва</div>
-                </div>
-                <div className={css.right_data}>07 июля 2020</div>
+            <div className={css.hotels}>
+              <div className={css.left_data}>
+                <div className={css.text}>Отели</div>{' '}
+                <img className={css.img_vector} src={vector} alt="vector" />{' '}
+                <div className={css.text}>Москва</div>
               </div>
-              <Scroll />
-              <p>Добавлено в Избранное: 3 отеля</p>
+              <div className={css.right_data}>07 июля 2020</div>
             </div>
+            <Scroll />
+            <p>Добавлено в Избранное: 3 отеля</p>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
-export default Authorization;

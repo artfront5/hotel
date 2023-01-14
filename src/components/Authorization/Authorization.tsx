@@ -1,22 +1,33 @@
 import React from 'react';
+import { Input } from '../common/Input';
 import css from './Authorization.module.scss';
 
 const Authorization: React.FC = () => {
   return (
-    <div className={css.container}>
-      <div className={css.box}>
-        <div className={css.title}>Simple Hotel Check</div>
-        <div className={css.form}>
-          <div className={css.data}>
-            <div className={css.placeh}>Логин</div>
-            <input className={css.inp} name="email" type="text" />
-          </div>
-          <div className={css.data}>
-            <div className={css.placeh}>Пароль</div>
-            <input className={css.inp} name="password" type="password" />
-          </div>
+    <div className={css.backgroundImage}>
+      <div className={css.backgroundColor}>
+        <div className={css.box}>
+          <h2 className={css.title}>Simple Hotel Check</h2>
+          <form className={css.form}>
+            <Input
+              name="email"
+              blockClassName={css.data}
+              inputClassName={css.inp}
+              labelClassName={css.placeh}
+              label="Логин"
+            />
+
+            <Input
+              name="password"
+              blockClassName={css.data}
+              inputClassName={css.inp}
+              labelClassName={css.placeh}
+              type="password"
+              label="Пароль"
+            />
+          </form>
+          <button className={css.button}>Войти</button>
         </div>
-        <button className={css.button}>Войти</button>
       </div>
     </div>
   );

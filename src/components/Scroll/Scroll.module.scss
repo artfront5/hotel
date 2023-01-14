@@ -1,19 +1,13 @@
-.items {
-  display: flex;
-  flex-direction: row;
-  padding: 10px;
-  cursor: pointer;
-  overflow-x: scroll;
-}
-
-// .items::-webkit-scrollbar {
-//   display: none;
-// }
 .images {
-  max-width: 600px;
+  display: flex;
+  cursor: pointer;
+  overflow-x: auto;
+
+  width: 100%;
+
   margin: auto;
   margin-top: 30px;
-  min-width: 100%;
+  padding: 10px;
 }
 
 .item {
