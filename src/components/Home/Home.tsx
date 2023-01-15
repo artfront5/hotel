@@ -1,12 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import css from './Home.module.scss';
-import exit from './exit.png';
-import vector from './vector.png';
-import Scroll from '../Scroll/Scroll';
+import exit from '../../assets/img/exit.png';
+import vector from '../../assets/img/vector.png';
+import Scroll from './Scroll/Scroll';
 import { Input } from '../common/Input';
-import Hotels from '../Hotels/Hotels';
+import Hotels from './Hotels/Hotels';
+import Favorite from './Favorite/Favorite';
+import { instanceAxios } from '../../api/axiosInstanse';
+import { useAppDispatch, useStateSelector } from '../../store';
+import { getHotels } from '../../store/hotels/actions';
 
 export const Home: React.FC = () => {
+  const dispath = useAppDispatch();
+  const { hotels, hotelsLoading, hotelsError } = useStateSelector((state) => state.hotel);
+
+  useEffect(() => {
+    dispath(getHotels());
+  }, []);
+
+  console.log(hotels, hotelsLoading);
+
+  if (hotelsLoading) {
+    return <h1>...loading</h1>;
+  }
   return (
     <div className={css.content}>
       <div className={css.header}>
@@ -49,22 +65,18 @@ export const Home: React.FC = () => {
               <div className={css.left_box_other_data}>
                 <div className={css.text_title_left}>Избранное</div>
                 <div className={css.selected}>
-                  <select name="select">
-                    <option value="value1" selected>
-                      Рейтинг
-                    </option>
+                  <select name="select" defaultValue="">
+                    <option value="value1">Рейтинг</option>
                     <option value="value2">выше</option>
                     <option value="value3">ниже</option>
                   </select>
-                  <select name="select">
-                    <option value="value1" selected>
-                      Цена
-                    </option>
+                  <select name="select" defaultValue="">
+                    <option value="value1">Цена</option>
                     <option value="value2">выше</option>
                     <option value="value3">ниже</option>
                   </select>
                 </div>
-                <Hotels />
+                <Favorite />
               </div>
             </div>
           </div>

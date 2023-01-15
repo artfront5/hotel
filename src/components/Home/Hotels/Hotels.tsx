@@ -1,10 +1,7 @@
 import React from 'react';
-import css from './Hotels.module.scss';
-import ellipse from '../../assets/img/ellipse.png';
-import { Rating } from '../Rating/Rating';
-import { HeartLike } from '../Heart/HeartLike';
+import { hotel, Hotel } from '../../common/Hotel/Hotel';
 
-const hotels: any = [
+const hotels: hotel[] = [
   {
     id: '1',
     label: 'Moscow Marriott Grand Hotel',
@@ -34,7 +31,7 @@ const hotels: any = [
     price: '23 924 ₽',
   },
   {
-    id: '4',
+    id: '5',
     label: 'Отель Novotel Moscow City',
     fullName: 'Отель Novotel Moscow City, Москва, Россия',
     cityName: 'Москва',
@@ -45,32 +42,8 @@ const hotels: any = [
 const Hotels: React.FC = () => {
   return (
     <div>
-      {hotels.map((el: any) => (
-        <div key={el.id}>
-          <div className={css.cardHotel}>
-            <div className={css.dataNameHotel}>
-              <img className={css.ellipse} src={ellipse} alt="ellipse" />
-              <div className={css.boxDate}>
-                <p className={css.labelHotel}>{el.label}</p>
-                <p className={css.date}>7 июля 2020 - 1 день</p>
-                <Rating
-                  activeColor="#ffd700"
-                  count={5}
-                  size={25}
-                  onChange={() => undefined}
-                />
-              </div>
-            </div>
-            <div className={css.boxRight}>
-              <HeartLike />
-              <p>
-                <label className={css.price}>Price:</label>
-                {el.price}
-              </p>
-            </div>
-          </div>
-          <hr />
-        </div>
+      {hotels.map((el: hotel) => (
+        <Hotel key={el.id} {...el} />
       ))}
     </div>
   );

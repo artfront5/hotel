@@ -1,11 +1,15 @@
 import { useState } from 'react';
 import Heart from 'react-heart';
 
-export function HeartLike() {
+type Props = {
+  containerClass?: string;
+};
+
+export function HeartLike({ containerClass }: Props) {
   const [active, setActive] = useState<boolean>(false);
 
   return (
-    <div style={{ width: '2rem' }}>
+    <div className={containerClass}>
       <Heart
         isActive={active}
         onClick={() => setActive(!active)}
@@ -13,11 +17,8 @@ export function HeartLike() {
         inactiveColor="#878787"
         activeColor="red"
         style={{
-          marginTop: '1rem',
           width: '21px',
           height: '18px',
-          marginLeft: 'auto',
-          marginRight: '0',
         }}
         animationDuration={0.1}
       />

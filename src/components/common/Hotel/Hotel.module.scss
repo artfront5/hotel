@@ -51,14 +51,13 @@ hr {
   margin-right: 0;
 }
 
-.boxRight {
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
-  height: 100%;
-}
 .price {
   font-size: 11px;
   color: #878787;
   margin-right: 8px;
+}
+
+.heart__container {
+  display: flex;
+  justify-content: flex-end;
 }
