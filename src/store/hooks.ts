@@ -1,4 +1,3 @@
-import { ActionCreatorsMapObject, bindActionCreators } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootStore } from './types';
 

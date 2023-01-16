@@ -6,6 +6,7 @@
     "@reduxjs/toolkit": "^1.9.1",
     "@types/react-star-rating-component": "^1.4.1",
     "axios": "^1.2.2",
+    "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-heart": "^1.0.6",
@@ -17,7 +18,8 @@
     "redux": "^4.2.0",
     "resolve-url-loader": "^5.0.0",
     "typings-for-scss-modules-loader": "^1.5.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -13,6 +13,7 @@ const hotelsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
+    // Hotels
     [getHotels.fulfilled.type]: (state, action: PayloadAction<hotel[]>) => {
       state.hotels = action.payload;
       state.hotelsLoading = false;

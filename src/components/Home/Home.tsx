@@ -9,8 +9,11 @@ import Favorite from './Favorite/Favorite';
 import { instanceAxios } from '../../api/axiosInstanse';
 import { useAppDispatch, useStateSelector } from '../../store';
 import { getHotels } from '../../store/hotels/actions';
+import { Navigate, useNavigate } from 'react-router-dom';
+import { Filters } from './Filters/Filters';
 
 export const Home: React.FC = () => {
+  const navigate = useNavigate();
   const dispath = useAppDispatch();
   const { hotels, hotelsLoading, hotelsError } = useStateSelector((state) => state.hotel);
 
@@ -19,15 +22,24 @@ export const Home: React.FC = () => {
   }, []);
 
   console.log(hotels, hotelsLoading);
+  if (!localStorage.getItem('loginData')) {
+    return <Navigate to="/auth" replace />;
+  }
 
   if (hotelsLoading) {
     return <h1>...loading</h1>;
   }
+
+  function logout() {
+    localStorage.removeItem('loginData');
+    navigate('/auth');
+  }
+
   return (
     <div className={css.content}>
       <div className={css.header}>
         <div className={css.left_title}>Simple Hotel Check</div>
-        <div className={css.right_title}>
+        <div onClick={logout} className={css.right_title}>
           Выйти
           <img className={css.img_exit} src={exit} alt="exit" />
         </div>
@@ -35,32 +47,7 @@ export const Home: React.FC = () => {
       <div className={css.container}>
         <div className={css.box}>
           <div className={css.left_box_all}>
-            <div className={css.left_box_first}>
-              <Input
-                name="city"
-                blockClassName={css.input_wrapper}
-                inputClassName={css.input}
-                label="Локация"
-                labelClassName={css.label}
-              />
-              <Input
-                name="city"
-                blockClassName={css.input_wrapper}
-                inputClassName={css.input}
-                label="Дата заселения"
-                labelClassName={css.label}
-                type="date"
-              />
-              <Input
-                name="city"
-                blockClassName={css.input_wrapper}
-                inputClassName={css.input}
-                label="Количество дней"
-                labelClassName={css.label}
-                type="number"
-              />
-              <button className={css.button}>Найти</button>
-            </div>
+            <Filters />
             <div className={css.left_box_other}>
               <div className={css.left_box_other_data}>
                 <div className={css.text_title_left}>Избранное</div>
