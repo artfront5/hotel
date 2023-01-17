@@ -18,13 +18,13 @@ const images: any = [
     id: '3',
     title: 'title',
     text: 'какой-то текст',
-    img: 'https://www.gdom.ru/netcat_files/93/42/ae4fac83058192a3c8157bf122395358',
+    img: 'https://pix10.agoda.net/hotelImages/161023/-1/88c7716d3339222aca1104f8314572af.jpg?ca=9&ce=1&s=1024x768',
   },
   {
     id: '4',
     title: 'title',
     text: 'какой-то текст',
-    img: 'https://avatars.mds.yandex.net/get-altay/374295/2a0000015b16ffca147fb9c684415f573ae0/XXL',
+    img: 'https://1arthotel.ru/upload/iblock/5af/5af51186afd5aaf7097ac928ec91996f.jpg',
   },
   {
     id: '5',
