@@ -1,49 +1,34 @@
 import React from 'react';
+import { hotelActions, useAppDispatch, useStateSelector } from '../../../store';
 import { hotel, Hotel } from '../../common/Hotel/Hotel';
 
-const hotels: hotel[] = [
-  {
-    id: '1',
-    label: 'Moscow Marriott Grand Hotel',
-    fullName: 'Отель Novotel Moscow City, Москва, Россия',
-    cityName: 'Москва',
-    price: '23 924 ₽',
-  },
-  {
-    id: '2',
-    label: 'Отель Novotel Moscow City',
-    fullName: 'Отель Novotel Moscow City, Москва, Россия',
-    cityName: 'Москва',
-    price: '23 924 ₽',
-  },
-  {
-    id: '3',
-    label: 'Отель Novotel Moscow City',
-    fullName: 'Отель Novotel Moscow City, Москва, Россия',
-    cityName: 'Москва',
-    price: '23 924 ₽',
-  },
-  {
-    id: '4',
-    label: 'Отель Novotel Moscow City',
-    fullName: 'Отель Novotel Moscow City, Москва, Россия',
-    cityName: 'Москва',
-    price: '23 924 ₽',
-  },
-  {
-    id: '5',
-    label: 'Отель Novotel Moscow City',
-    fullName: 'Отель Novotel Moscow City, Москва, Россия',
-    cityName: 'Москва',
-    price: '23 924 ₽',
-  },
-];
-
 const Hotels: React.FC = () => {
+  const dispath = useAppDispatch();
+
+  const { hotels, hotelsLoading, hotelsError } = useStateSelector((state) => state.hotel);
+
+  if (hotelsLoading) {
+    return <h1>...loading</h1>;
+  }
+
+  function onToggleFavorite(hotel: hotel, isFavorite: boolean) {
+    console.log(hotel, isFavorite);
+
+    if (isFavorite) {
+      dispath(hotelActions.addFavoriteHotel(hotel));
+    } else {
+      dispath(hotelActions.removeFavoriteHotel(hotel));
+    }
+  }
+
   return (
     <div>
-      {hotels.map((el: hotel) => (
-        <Hotel key={el.id} {...el} />
+      {hotels.map((hotel: hotel) => (
+        <Hotel
+          key={hotel.hotelId}
+          {...hotel}
+          onToggleFavorite={(isFavorite: boolean) => onToggleFavorite(hotel, isFavorite)}
+        />
       ))}
     </div>
   );

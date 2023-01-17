@@ -1,33 +1,21 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import css from './Home.module.scss';
 import exit from '../../assets/img/exit.png';
 import vector from '../../assets/img/vector.png';
 import Scroll from './Scroll/Scroll';
-import { Input } from '../common/Input';
 import Hotels from './Hotels/Hotels';
 import Favorite from './Favorite/Favorite';
-import { instanceAxios } from '../../api/axiosInstanse';
-import { useAppDispatch, useStateSelector } from '../../store';
-import { getHotels } from '../../store/hotels/actions';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { Filters } from './Filters/Filters';
+import { useStateSelector } from '../../store';
+import { getCorrectCheckInDate } from '../../utils/utils';
 
 export const Home: React.FC = () => {
+  const { checkIn, location } = useStateSelector((state) => state.filters);
   const navigate = useNavigate();
-  const dispath = useAppDispatch();
-  const { hotels, hotelsLoading, hotelsError } = useStateSelector((state) => state.hotel);
 
-  useEffect(() => {
-    dispath(getHotels());
-  }, []);
-
-  console.log(hotels, hotelsLoading);
   if (!localStorage.getItem('loginData')) {
     return <Navigate to="/auth" replace />;
-  }
-
-  if (hotelsLoading) {
-    return <h1>...loading</h1>;
   }
 
   function logout() {
@@ -72,9 +60,9 @@ export const Home: React.FC = () => {
               <div className={css.left_data}>
                 <div className={css.text}>Отели</div>{' '}
                 <img className={css.img_vector} src={vector} alt="vector" />{' '}
-                <div className={css.text}>Москва</div>
+                <div className={css.text}>{location}</div>
               </div>
-              <div className={css.right_data}>07 июля 2020</div>
+              <div className={css.right_data}>{getCorrectCheckInDate(checkIn)}</div>
             </div>
             <Scroll />
             <p>Добавлено в Избранное: 3 отеля</p>

@@ -1,14 +1,21 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instanceAxios } from '../../api/axiosInstanse';
 
-export const getHotels = createAsyncThunk('hotel/fetchHotels', async (_, thunkAPI) => {
-  try {
-    const { data } = await instanceAxios.get('', {
-      params: { lookup: 'hotel', query: 'moscow' },
-    });
+type Params = {
+  location: string;
+  checkIn: string;
+  checkOut: string;
+};
 
-    return data.results.hotels;
-  } catch (e) {
-    return thunkAPI.rejectWithValue(e);
+export const getHotels = createAsyncThunk(
+  'hotel/fetchHotels',
+  async (params: Params, thunkAPI) => {
+    try {
+      const { data } = await instanceAxios.get('', { params });
+
+      return data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e);
+    }
   }
-});
+);

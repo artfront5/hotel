@@ -6,8 +6,9 @@ export interface IRatingProps {
   count?: number;
   size?: number;
   onChange?: (newRating: number) => void;
+  value: number;
 }
-export const Rating = ({ count, onChange, size, activeColor }: IRatingProps) => {
+export const Rating = ({ count, onChange, size, activeColor, value }: IRatingProps) => {
   return (
     <div>
       <ReactStars
@@ -15,6 +16,7 @@ export const Rating = ({ count, onChange, size, activeColor }: IRatingProps) => 
         onChange={onChange}
         size={size}
         activeColor={activeColor}
+        value={value}
       />
     </div>
   );
