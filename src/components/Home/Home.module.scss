@@ -162,3 +162,23 @@ p {
 .selected {
   margin-bottom: 32px;
 }
+
+@media (max-width: 767px) {
+  .box {
+    display: flex;
+    justify-content: center;
+    width: 96vw;
+    height: 100%;
+    flex-direction: column;
+    margin: 0 auto;
+    align-items: center;
+  }
+  .left_box_all {
+    width: 96vw;
+    margin-right: 0;
+    margin-bottom: 24px;
+  }
+  .right_box {
+    width: 96vw;
+  }
+}
