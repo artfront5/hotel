@@ -45,6 +45,7 @@ export const Hotel: React.FC<hotel> = ({
             onClick={onToggleFavorite}
             isActive={favorite}
           />
+
           <p>
             <label className={css.price}>Price:</label>
             {priceAvg}
