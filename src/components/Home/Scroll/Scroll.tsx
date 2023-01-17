@@ -12,7 +12,7 @@ const images: any = [
     id: '2',
     title: 'title',
     text: 'какой-то текст',
-    img: 'https://kolomna-hotel.ru/upload/iblock/322/322e31242c44b4ab9fd5c407aafb2376.jpg',
+    img: 'https://icdn.lenta.ru/images/2020/12/19/00/20201219004825782/original_5aa4d92009855c90027248598f598fef.jpg',
   },
   {
     id: '3',
