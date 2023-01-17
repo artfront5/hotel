@@ -20,6 +20,7 @@
 
 .dataNameHotel {
   display: flex;
+  align-items: center;
 }
 
 .date {
@@ -60,4 +61,12 @@ hr {
 .heart__container {
   display: flex;
   justify-content: flex-end;
+}
+
+@media (max-width: 767px) {
+  .ellipse {
+    width: 40px;
+    height: 40px;
+    margin-right: 6px;
+  }
 }
