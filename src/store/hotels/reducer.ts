@@ -19,12 +19,27 @@ const hotelsSlice = createSlice({
   initialState,
   reducers: {
     addFavoriteHotel: (state, { payload }: PayloadAction<hotel>) => {
-      state.favoriteHotels.push({ ...payload, favorite: true });
+      const hotel = state.hotels.find(({ hotelId }) => hotelId === payload.hotelId);
+
+      if (hotel) {
+        hotel.favorite = true;
+        state.favoriteHotels.push({ ...payload, favorite: true });
+      }
     },
     removeFavoriteHotel: (state, { payload }: PayloadAction<hotel>) => {
-      state.favoriteHotels.filter((hotel) => {
+      console.log(payload);
+
+      state.favoriteHotels = state.favoriteHotels.filter((hotel) => {
         if (hotel.hotelId !== payload.hotelId) return true;
+
+        hotel.favorite = false;
       });
+
+      const hotel = state.hotels.find(({ hotelId }) => hotelId === payload.hotelId);
+
+      if (hotel) {
+        hotel.favorite = false;
+      }
     },
   },
   extraReducers: {

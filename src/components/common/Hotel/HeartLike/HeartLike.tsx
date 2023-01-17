@@ -2,22 +2,17 @@ import { useState } from 'react';
 import Heart from 'react-heart';
 
 type Props = {
-  containerClass?: string;
-  onClick?: (active: boolean) => void;
+  containerClass: string;
+  onClick?: () => void;
+  isActive?: boolean;
 };
 
-export function HeartLike({ containerClass, onClick }: Props) {
-  const [active, setActive] = useState<boolean>(false);
-
+export function HeartLike({ onClick, isActive, containerClass }: Props) {
   return (
     <div className={containerClass}>
       <Heart
-        isActive={active}
-        onClick={() => {
-          setActive(!active);
-
-          onClick && onClick(!active);
-        }}
+        isActive={isActive ? true : false}
+        onClick={onClick}
         animationTrigger="both"
         inactiveColor="#878787"
         activeColor="red"

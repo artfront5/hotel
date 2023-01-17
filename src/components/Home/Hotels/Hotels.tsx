@@ -11,13 +11,11 @@ const Hotels: React.FC = () => {
     return <h1>...loading</h1>;
   }
 
-  function onToggleFavorite(hotel: hotel, isFavorite: boolean) {
-    console.log(hotel, isFavorite);
-
-    if (isFavorite) {
-      dispath(hotelActions.addFavoriteHotel(hotel));
-    } else {
+  function onToggleFavorite(hotel: hotel) {
+    if (hotel.favorite) {
       dispath(hotelActions.removeFavoriteHotel(hotel));
+    } else {
+      dispath(hotelActions.addFavoriteHotel(hotel));
     }
   }
 
@@ -27,7 +25,7 @@ const Hotels: React.FC = () => {
         <Hotel
           key={hotel.hotelId}
           {...hotel}
-          onToggleFavorite={(isFavorite: boolean) => onToggleFavorite(hotel, isFavorite)}
+          onToggleFavorite={() => onToggleFavorite(hotel)}
         />
       ))}
     </div>

@@ -13,7 +13,7 @@ export type hotel = {
   showEllipse?: boolean;
   stars: number;
   favorite?: boolean | undefined;
-  onToggleFavorite: (isFavorite: boolean) => void;
+  onToggleFavorite: () => void;
 };
 
 export const Hotel: React.FC<hotel> = ({
@@ -40,7 +40,11 @@ export const Hotel: React.FC<hotel> = ({
           </div>
         </div>
         <div className={css.boxRight}>
-          <HeartLike containerClass={css.heart__container} onClick={onToggleFavorite} />
+          <HeartLike
+            containerClass={css.heart__container}
+            onClick={onToggleFavorite}
+            isActive={favorite}
+          />
           <p>
             <label className={css.price}>Price:</label>
             {priceAvg}
