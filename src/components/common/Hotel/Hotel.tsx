@@ -47,7 +47,6 @@ export const Hotel: React.FC<hotel> = ({
           />
           <p>
             <label className={css.price}>Price:</label>
-
             {priceAvg}
           </p>
         </div>
