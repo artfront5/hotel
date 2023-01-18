@@ -99,6 +99,9 @@ body {
   border: 1px solid #c9cacc;
   border-radius: 4px;
 }
+.input:focus-visible {
+  outline: none;
+}
 
 .input_wrapper {
   margin-bottom: 24px;
@@ -135,6 +138,11 @@ select {
   border-radius: 4px;
   background-color: white;
 }
+
+select:focus-visible {
+  outline: none;
+}
+
 .left_data {
   display: flex;
   justify-content: center;
