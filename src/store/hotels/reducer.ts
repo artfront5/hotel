@@ -7,11 +7,19 @@ const initialState: {
   hotelsLoading: boolean;
   hotelsError: boolean;
   favoriteHotels: hotel[];
+  favoriteFilters: {
+    rating: string;
+    price: string;
+  };
 } = {
   hotels: [],
   hotelsLoading: false,
   hotelsError: false,
   favoriteHotels: [],
+  favoriteFilters: {
+    rating: '',
+    price: '',
+  },
 };
 
 const hotelsSlice = createSlice({
@@ -39,6 +47,36 @@ const hotelsSlice = createSlice({
 
       if (hotel) {
         hotel.favorite = false;
+      }
+    },
+    changeRatingSortValue: (state, { payload }: PayloadAction<string>) => {
+      state.favoriteFilters.rating = payload;
+
+      if (!payload) return;
+
+      state.favoriteFilters.price = '';
+
+      if (payload === 'asc') {
+        state.favoriteHotels.sort((a, b) => b.stars - a.stars);
+      }
+
+      if (payload === 'desc') {
+        state.favoriteHotels.sort((a, b) => a.stars - b.stars);
+      }
+    },
+    changePriceSortValue: (state, { payload }: PayloadAction<string>) => {
+      state.favoriteFilters.price = payload;
+
+      if (!payload) return;
+
+      state.favoriteFilters.rating = '';
+
+      if (payload === 'asc') {
+        state.favoriteHotels.sort((a, b) => b.priceAvg - a.priceAvg);
+      }
+
+      if (payload === 'desc') {
+        state.favoriteHotels.sort((a, b) => a.priceAvg - b.priceAvg);
       }
     },
   },

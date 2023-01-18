@@ -5,7 +5,7 @@ import { getCheckoutDate } from '../../../utils/utils';
 import { Input } from '../../common/Input';
 import css from '../Home.module.scss';
 
-export function Filters() {
+export function HotelsFilters() {
   const dispath = useAppDispatch();
   const { location, checkIn, daysCount } = useStateSelector((state) => state.filters);
 

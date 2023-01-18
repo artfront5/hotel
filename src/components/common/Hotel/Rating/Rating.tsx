@@ -17,6 +17,7 @@ export const Rating = ({ count, onChange, size, activeColor, value }: IRatingPro
         size={size}
         activeColor={activeColor}
         value={value}
+        edit={false}
       />
     </div>
   );

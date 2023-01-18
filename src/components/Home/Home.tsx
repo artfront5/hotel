@@ -6,12 +6,14 @@ import Scroll from './Scroll/Scroll';
 import Hotels from './Hotels/Hotels';
 import Favorite from './Favorite/Favorite';
 import { Navigate, useNavigate } from 'react-router-dom';
-import { Filters } from './Filters/Filters';
+import { HotelsFilters } from './HotelsFilters/HotelsFilters';
 import { useStateSelector } from '../../store';
 import { getCorrectCheckInDate } from '../../utils/utils';
+import { FavoriteFilters } from './FavoriteFilters/FavoriteFilters';
 
 export const Home: React.FC = () => {
   const { checkIn, location } = useStateSelector((state) => state.filters);
+  const favoriteHotels = useStateSelector((state) => state.hotel.favoriteHotels);
   const navigate = useNavigate();
 
   if (!localStorage.getItem('loginData')) {
@@ -35,22 +37,11 @@ export const Home: React.FC = () => {
       <div className={css.container}>
         <div className={css.box}>
           <div className={css.left_box_all}>
-            <Filters />
+            <HotelsFilters />
             <div className={css.left_box_other}>
               <div className={css.left_box_other_data}>
                 <div className={css.text_title_left}>Избранное</div>
-                <div className={css.selected}>
-                  <select name="select" defaultValue="">
-                    <option value="value1">Рейтинг</option>
-                    <option value="value2">выше</option>
-                    <option value="value3">ниже</option>
-                  </select>
-                  <select name="select" defaultValue="">
-                    <option value="value1">Цена</option>
-                    <option value="value2">выше</option>
-                    <option value="value3">ниже</option>
-                  </select>
-                </div>
+                <FavoriteFilters />
                 <Favorite />
               </div>
             </div>
@@ -65,7 +56,7 @@ export const Home: React.FC = () => {
               <div className={css.right_data}>{getCorrectCheckInDate(checkIn)}</div>
             </div>
             <Scroll />
-            <p>Добавлено в Избранное: 3 отеля</p>
+            <p>Добавлено в Избранное: {favoriteHotels.length} отеля</p>
             <Hotels />
           </div>
         </div>
