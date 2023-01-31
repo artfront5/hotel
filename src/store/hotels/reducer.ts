@@ -1,6 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { hotel } from '../../components/common/Hotel/Hotel';
-import { getHotels } from './actions';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { hotel } from "../../components/common/Hotel/Hotel";
+import { getHotels } from "./actions";
 
 const initialState: {
   hotels: hotel[];
@@ -17,17 +17,19 @@ const initialState: {
   hotelsError: false,
   favoriteHotels: [],
   favoriteFilters: {
-    rating: '',
-    price: '',
+    rating: "",
+    price: "",
   },
 };
 
 const hotelsSlice = createSlice({
-  name: 'hotels',
+  name: "hotels",
   initialState,
   reducers: {
     addFavoriteHotel: (state, { payload }: PayloadAction<hotel>) => {
-      const hotel = state.hotels.find(({ hotelId }) => hotelId === payload.hotelId);
+      const hotel = state.hotels.find(
+        ({ hotelId }) => hotelId === payload.hotelId
+      );
 
       if (hotel) {
         hotel.favorite = true;
@@ -43,7 +45,9 @@ const hotelsSlice = createSlice({
         hotel.favorite = false;
       });
 
-      const hotel = state.hotels.find(({ hotelId }) => hotelId === payload.hotelId);
+      const hotel = state.hotels.find(
+        ({ hotelId }) => hotelId === payload.hotelId
+      );
 
       if (hotel) {
         hotel.favorite = false;
@@ -54,13 +58,13 @@ const hotelsSlice = createSlice({
 
       if (!payload) return;
 
-      state.favoriteFilters.price = '';
+      state.favoriteFilters.price = "";
 
-      if (payload === 'asc') {
+      if (payload === "asc") {
         state.favoriteHotels.sort((a, b) => b.stars - a.stars);
       }
 
-      if (payload === 'desc') {
+      if (payload === "desc") {
         state.favoriteHotels.sort((a, b) => a.stars - b.stars);
       }
     },
@@ -69,13 +73,13 @@ const hotelsSlice = createSlice({
 
       if (!payload) return;
 
-      state.favoriteFilters.rating = '';
+      state.favoriteFilters.rating = "";
 
-      if (payload === 'asc') {
+      if (payload === "asc") {
         state.favoriteHotels.sort((a, b) => b.priceAvg - a.priceAvg);
       }
 
-      if (payload === 'desc') {
+      if (payload === "desc") {
         state.favoriteHotels.sort((a, b) => a.priceAvg - b.priceAvg);
       }
     },
